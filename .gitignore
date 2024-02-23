@@ -52,7 +52,6 @@ coverage.xml
 .pytest_cache/
 
 # Translations
-*.mo
 *.pot
 
 # Django stuff:
@@ -130,3 +129,5 @@ dmypy.json
 
 # Dependency directories
 node_modules/
+
+/.idea/

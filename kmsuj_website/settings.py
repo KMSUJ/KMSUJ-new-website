@@ -78,7 +78,14 @@ INSTALLED_APPS = [
     'tinymce',
     'crispy_forms',
     'django_bleach',
+    'constance'
 ]
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+CONSTANCE_CONFIG = {
+    'OSSM_DATE': ("12-14 kwietnia 2137", 'Data OSSM na stronie głównej'),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -99,6 +106,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -146,6 +154,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "kmsuj_website", "locale"),
+)
 
 TIME_ZONE = 'UTC'
 
