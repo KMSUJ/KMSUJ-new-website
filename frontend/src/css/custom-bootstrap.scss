@@ -17,8 +17,9 @@
 /* Color variables */
 $UJ-blue: #005ca7;
 $header-footer-color: #062e4e;
-$header-footer-color-ossm: #490808;
+$header-footer-color-ossm: #754F6E;
 $header-footer-color-workshop: #115c0cc7;
+$ossm-date-color: #F529CB;
 $tab-chosen-color: rgba(255, 255, 255, 0.212);
 $light-text-color: #fff;
 $dark-text-color: #000;
@@ -881,7 +882,7 @@ $light-background: #fff;
 			margin: 0.5em 0 0.35em 0;
 			text-align:center;
 			span {
-				color: red;
+				color: $ossm-date-color;
 			}
 		}
 
