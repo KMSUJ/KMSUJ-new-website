@@ -84,7 +84,10 @@ INSTALLED_APPS = [
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
-    'OSSM_DATE': ("12-14 kwietnia 2137", 'Data OSSM na stronie głównej'),
+    'OSSM_DATE': ('12-14 kwietnia 2137', 'Data OSSM na stronie głównej'),
+    'WORKSHOP_TITLE_PL': ('XXIV Międzynarodowe Warsztaty\ndla&nbspMłodych Matematyków\n"Teoria&nbspReprezentacji"', 'Tytuł warsztatów na stronie głównej PL'),
+    'WORKSHOP_TITLE_EN': ('XXIV International Workshop\nfor&nbspYoung Mathematicians\n"Representation&nbspTheory"', 'Tytuł warsztatów na stronie głównej EN'),
+    'WORKSHOP_DATE': ('17-23 IX 2137', 'Data warsztatów na stronie głównej'),
 }
 
 MIDDLEWARE = [

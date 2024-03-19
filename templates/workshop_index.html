@@ -14,16 +14,12 @@
             <div class="col-5 col-12-medium center"> <!-- Zmienione z <div class="col-8 col-12-medium"> -->
                 <h2 class="main-page-title">
                     {% if language == 'pl' %}
-                    XXIV Międzynarodowe Warsztaty
-                    dla&nbspMłodych Matematyków
-                    "Teoria&nbspReprezentacji" 
+                        {{ config.WORKSHOP_TITLE_PL|safe }}
                     {% else %}
-                    XXIV International Workshop
-                    for&nbspYoung Mathematicians
-                    "Representation&nbspTheory"
+                        {{ config.WORKSHOP_TITLE_EN|safe }}
                     {% endif %}
                     <br>
-                    17-23 IX 2023
+                    {{ config.WORKSHOP_DATE|safe }}
                 </h2>
             </div>
         </div>
