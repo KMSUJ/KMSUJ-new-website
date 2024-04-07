@@ -18,7 +18,7 @@ class AdditionalLink:
 
 def get_bleach_options():
     bleach_args = {
-        "tags": BLEACH_ALLOWED_TAGS,
+        "tags": BLEACH_ALLOWED_TAGS | {"details", "summary"},
         "attributes": BLEACH_ALLOWED_ATTRIBUTES,
         "strip": BLEACH_STRIP_TAGS,
         "strip_comments": BLEACH_STRIP_COMMENTS,
