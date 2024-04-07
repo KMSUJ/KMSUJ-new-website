@@ -41,7 +41,7 @@ npm rebuild node-sass
 npm install
 npm run build
 
-python3 manage.py collectstatic
+echo "yes" | python3 manage.py collectstatic
 python3 manage.py migrate
 
 echo "Running some additional configurations..."
