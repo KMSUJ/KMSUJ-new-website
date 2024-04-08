@@ -197,14 +197,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Which HTML tags are allowed
 BLEACH_ALLOWED_TAGS = [
     'p', 'b', 'i', 'u', 'em', 'strong', 'a', 'pre', 'div', 'strong', 'sup', 'sub', 'ol', 'ul', 'li', 'address',
-    'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code', 'table', 'tbody', 'tr', 'td', 'hr', 'img',
-    'br', 'iframe', "details", "summary"
+    'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code', 'table', 'thead', 'tbody', 'th', 'tr', 'td', 'hr',
+    'img', 'br', 'iframe', 'details', 'summary', 'style'
 ]
 
 # Which HTML attributes are allowed
 BLEACH_ALLOWED_ATTRIBUTES = [
     'href', 'title', 'style', 'alt', 'src', 'dir', 'class', 'border', 'cellpadding', 'cellspacing', 'id',
-    'name', 'align', 'width', 'height', 'target', 'rel',
+    'name', 'align', 'width', 'height', 'target', 'rel', 'type', 'colspan', 'rowspan'
 ]
 
 # Which CSS properties are allowed in 'style' attributes (assuming
