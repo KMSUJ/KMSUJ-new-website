@@ -96,16 +96,51 @@
                             We are looking forward to having you with us!
                             {% endif %}
                         </p>
+
+			<div>
+                            <h3>
+                                {% if language == 'pl' %}
+                                Patroni honorowi
+                                {% else %}
+                                Honorary patrons
+                                {% endif %}
+                            </h3>
+                            <div class="row aln-center aln-middle" style="text-align: center">
+				<div>
+                                    <img style="max-width: 350px;" src="{% static 'images/patron_krakow.jpg' %}" alt="">
+                                    <p>
+                                        {% if language == 'pl' %}
+                                        Prezydent Miasta Kraków
+                                        {% else %}
+                                        Mayor of the Royal Capital City of Kraków
+                                        {% endif %}
+                                        <br>Aleksander Miszalski
+                                    </p>
+                                </div>
+			    </div>
+			</div>
+			
+			<div>
+                            <h3>
+                                {% if language == 'pl' %}
+                                Patroni medialni
+                                {% else %}
+                                Media patrons
+                                {% endif %}
+                            </h3>
+                            <div class="row aln-center aln-middle">
+                                <a href="https://www.krakow.pl/"><img style="max-width: 400px;" src="{% static 'images/patron_krakow_pl.png' %}" alt=""></a>
+			    </div>
+			</div>
                     </section>
                 </div>
-
+		
             </div>
         </div>
     </div>
 </div>
 
 <!-- Features -->
-
 
 
 {% endblock %}
