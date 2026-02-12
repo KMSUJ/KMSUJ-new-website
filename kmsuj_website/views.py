@@ -30,6 +30,7 @@ def get_bleach_options():
 def get_context(request, site = 'KMSUJ', language = 'en'):
     context = {}
     context['language'] = language
+    context['show_main_nav'] = True
     additional_links = []
     dropdown_links = []
     header_footer_colors = 'header-footer-colors-' + site
@@ -59,6 +60,9 @@ def get_context(request, site = 'KMSUJ', language = 'en'):
 
         if site == 'OSSM':
             main_nav_tab = 'Informacje'
+            context['show_main_nav'] = False
+            if Page.objects.filter(site=site, name="rejestracja").exists():
+                additional_links.append(AdditionalLink("/ossm/rejestracja/", "Rejestracja"))
 
         if Page.objects.filter(site=site, name="kontakt").all().count() or Page.objects.filter(site=site, name="kontakt_o").all().count() :
             context['contact'] = True
@@ -126,6 +130,8 @@ def page_view_base(request, site, name, language ='en'):
 
     if name.startswith('kontakt') or name.startswith('contact'):
         context['is_contact'] = True
+    if name.startswith('rejestracja') or name.startswith('registration'):
+        context['is_registration'] = True
 
     context['title'] = title
     context['page'] = page

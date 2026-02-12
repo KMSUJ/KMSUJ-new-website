@@ -14,13 +14,16 @@
 		<title>{{ site }} - {{ title }}</title>
 		{% endif %}
 		<link href="{% static 'dist/main.css' %}" rel="stylesheet">
+        {% if site == 'OSSM' %}
+		<link rel="icon" type="image/x-icon" href="{% static 'images/ossm_favicon_256.ico' %}">
+        {% endif %}
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     </head>
 
     
-    <body class="is-preload homepage">
+    <body class="is-preload homepage site-{{ site|lower }}">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -41,19 +44,25 @@
 										<li>
 									{% endif %}
 										{% block index_link %}{% endblock %}</li>
-                                    {% if not is_index and not is_contact %}
-									<li class="current">
-									{% else %}
-									<li>
-									{% endif %}
-										<a href="#">{{ main_nav_tab }}</a>
-										<ul>
-											{% block pages %}{% endblock %}
-										</ul>
-									</li>
+                                    {% if show_main_nav %}
+                                        {% if not is_index and not is_contact %}
+									    <li class="current">
+									    {% else %}
+									    <li>
+									    {% endif %}
+										    <a href="#">{{ main_nav_tab }}</a>
+										    <ul>
+											    {% block pages %}{% endblock %}
+										    </ul>
+									    </li>
+                                    {% endif %}
 									{% block dropdown_links %}{% endblock %}
 									{% for link in additional_links %}
+                                        {% if is_registration and link.title == 'Rejestracja' %}
+										<li class="current"><a href="{{ link.link }}">{{ link.title }}</a></li>
+                                        {% else %}
 										<li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                                        {% endif %}
 									{% endfor %}
 									{% if contact %}
 										{% if is_contact %}

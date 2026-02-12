@@ -5,7 +5,7 @@
 @import 'libs/breakpoints';
 @import 'libs/html-grid';
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
+@import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800|Carlito:400,700|Bai+Jamjuree:500,800");
 
 
 /*
@@ -17,9 +17,9 @@
 /* Color variables */
 $UJ-blue: #005ca7;
 $header-footer-color: #062e4e;
-$header-footer-color-ossm: #754F6E;
+$header-footer-color-ossm: #2A6E76;
 $header-footer-color-workshop: #115c0cc7;
-$ossm-date-color: #F529CB;
+$ossm-date-color: #2A6E76;
 $tab-chosen-color: rgba(255, 255, 255, 0.212);
 $light-text-color: #fff;
 $dark-text-color: #000;
@@ -125,8 +125,8 @@ $light-background: #fff;
 			box-sizing: inherit;
 		}
 
-	body {
-		background-color: $light-background-dimmed;
+body {
+	background-color: $light-background-dimmed;
 		background-position: top left, top left;
 		background-repeat: repeat-x, repeat;
 		background-size: 100% 30em, auto;
@@ -144,6 +144,102 @@ $light-background: #fff;
 				}
 			}
 
+	}
+
+	body.site-ossm {
+		font-family: 'Carlito';
+		font-size: 15pt;
+	}
+
+	body.site-ossm input,
+	body.site-ossm select,
+	body.site-ossm textarea {
+		font-family: 'Carlito', 'Open Sans', sans-serif;
+	}
+
+	body.site-ossm #banner h2 {
+		font-family: 'Bai Jamjuree', 'Carlito', 'Open Sans', sans-serif;
+		font-weight: 500;
+	}
+
+	body.site-ossm #banner h2 span {
+		font-weight: 800;
+	}
+
+	body.site-ossm strong,
+	body.site-ossm b {
+		font-weight: 700;
+	}
+
+	body.site-ossm .ossm-register-btn {
+		width: 100%;
+		background: $header-footer-color-ossm;
+	}
+
+	body.site-ossm .ossm-register-btn:hover {
+		background: lighten($header-footer-color-ossm, 8%);
+	}
+
+	body.site-ossm .ossm-register-btn:active {
+		background: lighten($header-footer-color-ossm, 14%);
+	}
+
+	body.site-ossm .ossm-register-wrap {
+		text-align: center;
+		margin-bottom: 2.4em;
+	}
+
+	body.site-ossm .ossm-fb-note {
+		text-align: center;
+		font-weight: 700;
+		margin-bottom: 1.1em;
+	}
+
+	body.site-ossm .ossm-fb-wrap {
+		text-align: center;
+	}
+
+	body.site-ossm .ossm-fb-wrap ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0;
+		padding-left: 0;
+		margin: 0;
+		left: 0;
+		top: 0;
+	}
+
+	body.site-ossm .ossm-fb-wrap ul li {
+		margin: 0;
+		padding: 0;
+	}
+
+	body.site-ossm .ossm-fb-btn {
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		width: 5.5em !important;
+		height: 5.5em !important;
+		line-height: 4.4em !important;
+		background: rgba(42, 110, 118, 0.2) !important;
+	}
+
+	body.site-ossm .ossm-fb-btn:before {
+		color: $header-footer-color-ossm !important;
+		font-size: 2.8em !important;
+	}
+
+	body.site-ossm .ossm-fb-btn:hover {
+		background: $header-footer-color-ossm !important;
+	}
+
+	body.site-ossm .ossm-fb-btn:hover:before {
+		color: #fff !important;
+	}
+
+	body.site-ossm .ossm-fb-btn:active {
+		background: lighten($header-footer-color-ossm, 8%) !important;
 	}
 
 	input, select, textarea {
@@ -698,7 +794,7 @@ $light-background: #fff;
 /* Wrappers */
 
 	#header-wrapper {
-		padding: 2em 0 1.5em 0;
+		padding: 0.5em 0 0.5em 0;
 	}
 	#features-wrapper {
 		padding: 3em 0 3em 0;
@@ -719,16 +815,22 @@ $light-background: #fff;
 	}
 
 
+
+
 /* Header */
 
 	#header {
 		position: relative;
+		min-height: 5.2em;
+		display: flex;
+		align-items: center;
 	}
 
 /* Logo */
 
 	#logo {
-		display: inline-block;
+		display: flex;
+		align-items: center;
 
 		h1 {
 			color: #fff;
@@ -750,9 +852,16 @@ $light-background: #fff;
 			margin: 0 0 0 1.25em;
 		}
 		.image {
-			display: inline-block !important;
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
 			margin: 0 !important;
-			width: 5.5em;
+			height: 5.5em;
+			width: auto;
+		}
+		.image img{
+			height: 100%;
+			width: auto;
 		}
 	}
 
@@ -761,7 +870,8 @@ $light-background: #fff;
 	#nav {
 		position: absolute;
 		right: 0;
-		bottom: 0;
+		top: 50%;
+		@include vendor('transform', 'translateY(-50%)');
 		font-size: 0.9em;
 		ul {
 			list-style: none;
@@ -1072,9 +1182,23 @@ $light-background: #fff;
 
 			#header {
 				margin: 0 auto;
+				justify-content: center;
 			}
 
 		/* Logo */
+
+			#logo {
+				width: 100%;
+				justify-content: center;
+			}
+
+			#logo .image {
+				max-width: 90%;
+			}
+
+			#logo .image img {
+				max-width: 100%;
+			}
 
 			#logo span {
 				display: block;
