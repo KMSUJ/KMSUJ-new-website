@@ -60,7 +60,7 @@ def get_context(request, site = 'KMSUJ', language = 'en'):
 
         if site == 'OSSM':
             main_nav_tab = 'Informacje'
-            context['show_main_nav'] = False
+            context['show_main_nav'] = True
             if Page.objects.filter(site=site, name="rejestracja").exists():
                 additional_links.append(AdditionalLink("/ossm/rejestracja/", "Rejestracja"))
 
