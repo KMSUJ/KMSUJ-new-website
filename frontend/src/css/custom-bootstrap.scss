@@ -185,8 +185,25 @@ body {
 	}
 
 	body.site-ossm .ossm-register-wrap {
+		display: flex;
+		justify-content: center;
+		gap: 10%;
 		text-align: center;
-		margin-bottom: 2.4em;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	body.site-ossm .ossm-register-wrap .ossm-register-btn {
+
+		text-align: center;
+		margin-bottom:2rem;
+	}
+
+	@include breakpoint("<=medium") {
+		body.site-ossm .ossm-register-wrap {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	body.site-ossm .ossm-fb-note {
