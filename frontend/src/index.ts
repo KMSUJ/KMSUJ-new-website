@@ -6,3 +6,4 @@ import 'bootstrap/dist/js/bootstrap.js';
 import './js/jquery.dropotron.min.js';
 import './js/util.js'; 
 import './js/main.js';
+import './js/schedule.js';
