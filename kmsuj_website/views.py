@@ -1,6 +1,8 @@
 from django.http.response import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 import unicodedata
+from urllib.parse import urlsplit
 from django.contrib import messages
 from django.utils.safestring import mark_safe
 
@@ -12,9 +14,59 @@ from bleach.css_sanitizer import CSSSanitizer
 from .settings import BLEACH_ALLOWED_TAGS, BLEACH_ALLOWED_ATTRIBUTES, BLEACH_ALLOWED_STYLES, BLEACH_STRIP_TAGS, BLEACH_STRIP_COMMENTS
 
 class AdditionalLink:
-    def __init__(self, link = '', title = ''):
+    def __init__(self, link = '', title = '', active_links = None, active_prefixes = None):
         self.link = link
         self.title = title
+        self.active_links = active_links if active_links is not None else [link]
+        self.active_prefixes = active_prefixes if active_prefixes is not None else []
+        self.is_active = False
+
+    def update_is_active(self, current_path):
+        normalized_current_path = normalize_path(current_path)
+        normalized_active_links = set()
+        for link in self.active_links:
+            normalized_link = normalize_path(link)
+            if normalized_link:
+                normalized_active_links.add(normalized_link)
+
+        normalized_active_prefixes = []
+        for prefix in self.active_prefixes:
+            normalized_prefix = normalize_path(prefix)
+            if normalized_prefix:
+                normalized_active_prefixes.append(normalized_prefix)
+
+        self.is_active = normalized_current_path in normalized_active_links
+        if self.is_active:
+            return
+
+        self.is_active = any(
+            path_matches_prefix(normalized_current_path, prefix)
+            for prefix in normalized_active_prefixes
+        )
+
+
+def normalize_path(path):
+    if not path:
+        return ''
+
+    parsed = urlsplit(path)
+    normalized_path = parsed.path or path
+    if not normalized_path.startswith('/'):
+        normalized_path = '/' + normalized_path.lstrip('/')
+
+    stripped_path = normalized_path.rstrip('/')
+    return stripped_path or '/'
+
+
+def path_matches_prefix(path, prefix):
+    if not path or not prefix:
+        return False
+
+    return path == prefix or path.startswith(prefix + '/')
+
+
+def page_to_additional_link(page, url_name):
+    return AdditionalLink(reverse(url_name, args=[page.name]), page.title)
 
 def get_bleach_options():
     bleach_args = {
@@ -61,17 +113,25 @@ def get_context(request, site = 'KMSUJ', language = 'en'):
         if site == 'OSSM':
             main_nav_tab = 'Informacje'
             context['show_main_nav'] = True
-            if Page.objects.filter(site=site, name="rejestracja").exists():
-                additional_links.append(AdditionalLink("/ossm/rejestracja/", "Rejestracja"))
+            nav_pages = Page.objects.filter(site=site, category="nav").order_by('order').all()
+            additional_links.extend(
+                page_to_additional_link(page, 'ossm_page')
+                for page in nav_pages
+            )
 
         if Page.objects.filter(site=site, name="kontakt").all().count() or Page.objects.filter(site=site, name="kontakt_o").all().count() :
             context['contact'] = True
+
+    current_path = normalize_path(request.path)
+    for link in additional_links:
+        link.update_is_active(current_path)
     
     context['main_pages'] = main_pages
     context['site'] = site
     context['main_nav_tab'] = main_nav_tab
     context['prefix'] = prefix
     context['additional_links'] = additional_links
+    context['has_active_additional_link'] = any(link.is_active for link in additional_links)
     context['header_footer_colors'] = header_footer_colors
     context['dropdown_links'] = dropdown_links
     context['language'] = language
@@ -130,9 +190,6 @@ def page_view_base(request, site, name, language ='en'):
 
     if name.startswith('kontakt') or name.startswith('contact'):
         context['is_contact'] = True
-    if name.startswith('rejestracja') or name.startswith('registration'):
-        context['is_registration'] = True
-
     context['title'] = title
     context['page'] = page
     context['can_edit'] = can_edit

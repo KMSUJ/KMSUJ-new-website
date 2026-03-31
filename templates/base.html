@@ -44,8 +44,16 @@
 										<li>
 									{% endif %}
 										{% block index_link %}{% endblock %}</li>
-                                    {% if show_main_nav %}
-                                        {% if not is_index and not is_contact and not is_registration %}
+									{% block dropdown_links %}{% endblock %}
+									{% for link in additional_links %}
+                                        {% if link.is_active %}
+										<li class="current"><a href="{{ link.link }}">{{ link.title }}</a></li>
+                                        {% else %}
+										<li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                                        {% endif %}
+									{% endfor %}
+									{% if show_main_nav %}
+                                        {% if not is_index and not is_contact and not has_active_additional_link %}
 									    <li class="current">
 									    {% else %}
 									    <li>
@@ -56,14 +64,6 @@
 										    </ul>
 									    </li>
                                     {% endif %}
-									{% block dropdown_links %}{% endblock %}
-									{% for link in additional_links %}
-                                        {% if is_registration and link.title == 'Rejestracja' %}
-										<li class="current"><a href="{{ link.link }}">{{ link.title }}</a></li>
-                                        {% else %}
-										<li><a href="{{ link.link }}">{{ link.title }}</a></li>
-                                        {% endif %}
-									{% endfor %}
 									{% if contact %}
 										{% if is_contact %}
 										<li class="current">

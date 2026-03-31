@@ -59,8 +59,17 @@
 })(jQuery);
 
 MathJax = {
+	loader: {
+		load: ['[tex]/boldsymbol']
+	},
 	tex: {
-		inlineMath: [['$', '$'], ['\\(', '\\)']]
+		inlineMath: [['$', '$'], ['\\(', '\\)']],
+		packages: {
+			'[+]': ['boldsymbol']
+		},
+		macros: {
+			bm: ['\\boldsymbol{#1}', 1]
+		}
 	},
 	svg: {
 		fontCache: 'global'
