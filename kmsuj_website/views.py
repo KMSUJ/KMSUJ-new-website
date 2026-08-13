@@ -89,6 +89,14 @@ def get_context(request, site = 'KMSUJ', language = 'en'):
     main_nav_tab = ''
     if site == 'WORKSHOP':
         main_pages = BilingualPage.objects.filter(category='main').order_by('order').all()
+        nav_pages = BilingualPage.objects.filter(category='nav').order_by('order').all()
+        additional_links.extend(
+            AdditionalLink(
+                reverse('workshop_page', args=[page.name, language]),
+                page.title_polish if language == 'pl' else page.title,
+            )
+            for page in nav_pages
+        )
         if language == 'pl':
             main_nav_tab = 'Informacje'
         else :
@@ -157,7 +165,7 @@ def ossm_index_view(request):
 def workshop_index_view(request, lang='en'):
     context = get_context(request, "WORKSHOP", lang)
 
-    if lang == 'PL':
+    if lang == 'pl':
         context['title'] = "Międzynarodowe Warsztaty dla Młodych Matematyków"
     else :
         context['title'] = "International Workshop for Young Mathematicians"

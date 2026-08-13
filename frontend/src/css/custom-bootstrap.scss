@@ -18,7 +18,7 @@
 $UJ-blue: #005ca7;
 $header-footer-color: #062e4e;
 $header-footer-color-ossm: #2A6E76;
-$header-footer-color-workshop: #115c0cc7;
+$header-footer-color-workshop: #315f78;
 $ossm-date-color: #2A6E76;
 $tab-chosen-color: rgba(255, 255, 255, 0.212);
 $light-text-color: #fff;
@@ -257,6 +257,319 @@ body {
 
 	body.site-ossm .ossm-fb-btn:active {
 		background: lighten($header-footer-color-ossm, 8%) !important;
+	}
+
+	body.site-workshop #logo .iwym-logo {
+		display: flex;
+		width: 5.4rem;
+		height: 5.4rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	body.site-workshop #logo .iwym-logo img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	body.site-workshop .iwym-home-intro {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+		margin-bottom: 1.8rem;
+	}
+
+	body.site-workshop .iwym-home-intro-main p,
+	body.site-workshop .iwym-home-topic p { text-align: justify; }
+	body.site-workshop .iwym-home-topic {
+		border: 5px solid #315f78;
+		border-radius: 6px;
+		padding: 1.25rem 1.5rem;
+		background: #e7eff3;
+	}
+
+	body.site-workshop .iwym-home-actions {
+		display: flex;
+		justify-content: center;
+		gap: 10%;
+		width: 80%;
+		margin: 2.4rem auto 1.6rem;
+	}
+
+	body.site-workshop .iwym-home-button {
+		width: 100%;
+		margin: 0;
+		background: #315f78;
+		text-align: center;
+	}
+	body.site-workshop .iwym-home-button:hover { background: #284d62; }
+	body.site-workshop .iwym-home-button:active { background: #203e4f; }
+	body.site-workshop .iwym-home-facebook-note { text-align: center; font-weight: 700; margin-bottom: 1.1em; }
+	body.site-workshop .iwym-home-facebook { text-align: center; }
+	body.site-workshop .iwym-home-facebook ul { display: flex; justify-content: center; margin: 0; padding: 0; left: 0; top: 0; }
+	body.site-workshop .iwym-home-facebook ul li { margin: 0; padding: 0; }
+	body.site-workshop .iwym-home-facebook-button {
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		width: 5.5em !important;
+		height: 5.5em !important;
+		background: rgba(49, 95, 120, 0.18) !important;
+	}
+	body.site-workshop .iwym-home-facebook-button:before { color: #315f78 !important; font-size: 2.8em !important; }
+	body.site-workshop .iwym-home-facebook-button:hover { background: #315f78 !important; }
+	body.site-workshop .iwym-home-facebook-button:hover:before { color: #fff !important; }
+
+	/* Registration and timeline */
+	body.site-workshop .iwym-registration {
+		width: 100%;
+		margin: 0;
+	}
+
+	body.site-workshop .iwym-registration-lead {
+		margin-bottom: 1.35rem;
+		font-size: 1.1em;
+		text-align: center;
+	}
+
+	body.site-workshop .iwym-cta {
+		display: flex;
+		min-height: 7em;
+		margin: 1.5rem 0;
+		padding: 1rem 1.25rem;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 0.35em;
+		border-radius: 8px;
+		color: #fff !important;
+		font-weight: 700;
+		line-height: 1.25;
+		text-align: center;
+		text-decoration: none;
+		box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+		transition: filter 0.15s ease, transform 0.15s ease;
+	}
+
+	body.site-workshop .iwym-cta:hover {
+		filter: brightness(1.08);
+		transform: translateY(-2px);
+		text-decoration: none;
+	}
+
+	body.site-workshop .iwym-cta span { display: block; font-size: 1.45em; }
+	body.site-workshop .iwym-cta small { display: block; font-size: 0.85em; font-weight: 400; }
+	body.site-workshop .iwym-cta-registration { background: #315f78; }
+	body.site-workshop .iwym-cta-talk { background: #583d7d; }
+	body.site-workshop .iwym-cta-poster { background: #7d3d62; }
+
+	body.site-workshop .iwym-timeline-panel {
+		margin: 2.25rem 0;
+		padding: 1.5rem 1.75rem;
+		border: 5px solid #315f78;
+		border-radius: 8px;
+		background: #e7eff3;
+	}
+
+	body.site-workshop .iwym-timeline-panel h3 {
+		margin-bottom: 1rem;
+		color: #284d62;
+	}
+
+	body.site-workshop .iwym-payment-panel { margin: 2.25rem 0; }
+	body.site-workshop .iwym-bank-account { overflow-wrap: anywhere; }
+	body.site-workshop .iwym-payment-references { margin-bottom: 0; }
+	body.site-workshop .iwym-registration-section { margin: 2.5rem 0; }
+	body.site-workshop .iwym-cta-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		margin: 1.5rem 0;
+	}
+	body.site-workshop .iwym-cta-grid .iwym-cta { margin: 0; }
+
+	body.site-workshop .iwym-timeline-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	body.site-workshop .iwym-timeline-list li {
+		display: grid;
+		grid-template-columns: minmax(13rem, 17rem) 1fr;
+		gap: 1.25rem;
+		margin: 0;
+		padding: 0.85rem 0;
+		border-top: 1px solid rgba(49, 95, 120, 0.3);
+		line-height: 1.45;
+	}
+
+	body.site-workshop .iwym-timeline-list li:first-child { border-top: 0; }
+	body.site-workshop .iwym-timeline-date { color: #284d62; }
+	body.site-workshop .iwym-timeline-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 0 2rem;
+		border-radius: 8px;
+	}
+
+	/* Invited speakers */
+	body.site-workshop .iwym-speakers {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-rows: 1fr;
+		gap: 1.5rem;
+		align-items: stretch;
+	}
+
+	body.site-workshop .iwym-speaker-card {
+		display: grid;
+		grid-template-columns: 145px minmax(0, 1fr);
+		gap: 1.15rem;
+		height: 100%;
+		margin: 0 !important;
+		padding: 1.25rem;
+		border: 5px solid $header-footer-color-workshop;
+		border-radius: 6px;
+		background: $light-background;
+	}
+
+	body.site-workshop .iwym-speaker-photo {
+		display: block;
+		width: 145px;
+		height: 100%;
+		min-height: 190px;
+		margin: 0;
+		object-fit: cover;
+		background: #e7eff3;
+		border-radius: 4px;
+	}
+
+	body.site-workshop .iwym-speaker-photo[src$="jason-mireles-james.jpg"] {
+		object-position: 68% 72%;
+	}
+
+	body.site-workshop .iwym-speaker-card > div {
+		display: flex;
+		min-width: 0;
+		flex-direction: column;
+	}
+
+	body.site-workshop .iwym-speaker-card h3 {
+		margin-bottom: 0.5rem;
+		line-height: 1.35;
+	}
+
+	body.site-workshop .iwym-speaker-card p {
+		margin-bottom: 1rem;
+		line-height: 1.65;
+	}
+
+	body.site-workshop .iwym-speaker-more {
+		display: inline-block;
+		align-self: flex-start;
+		margin-top: auto;
+		padding: 0.4rem 0.9rem;
+		border-radius: 4px;
+		background: #583d7d;
+		color: #fff !important;
+		font-weight: 600;
+		line-height: 1.5;
+		text-decoration: none;
+	}
+
+	body.site-workshop .iwym-speaker-more:hover { background: #473162; }
+
+	body.site-workshop .iwym-speaker-modal { display: none; }
+	body.site-workshop .iwym-speaker-modal-dismissed { display: none !important; }
+	html.iwym-speaker-modal-open,
+	body.iwym-speaker-modal-open { overflow: hidden; }
+
+	body.site-workshop .iwym-speaker-modal:target {
+		display: flex;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 20000;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		background: rgba(0, 0, 0, 0.65);
+	}
+
+	body.site-workshop .iwym-speaker-dialog,
+	body.site-workshop .iwym-speaker-modal > div {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 760px;
+		max-height: 85vh;
+		overflow: hidden;
+		padding: 0;
+		border: 12px solid #583d7d;
+		border-radius: 6px;
+		background: $light-background;
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+	}
+
+	body.site-workshop .iwym-speaker-modal h3 {
+		position: static;
+		flex: 0 0 auto;
+		margin: 0;
+		padding: 1.15rem 2rem 1.25rem;
+		background: #583d7d;
+		color: #fff;
+		text-align: center;
+	}
+
+	body.site-workshop .iwym-speaker-dialog-body {
+		flex: 1 1 auto;
+		width: auto;
+		min-height: 0;
+		max-width: none;
+		max-height: none;
+		overflow-y: auto;
+		padding: 1.5rem 2rem 2rem;
+		border: 0;
+		border-radius: 0;
+		background: $light-background;
+		overscroll-behavior: contain;
+	}
+
+	body.site-workshop .iwym-speaker-close {
+		display: none;
+	}
+
+	body.site-workshop .iwym-speaker-modal-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	body.site-workshop .iwym-speaker-modal-actions .iwym-speaker-close {
+		display: inline-flex;
+		flex: 0 0 auto;
+		width: 2.4rem;
+		height: 2.4rem;
+		margin-left: auto;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+		background: #583d7d;
+		color: #fff !important;
+		font-size: 1.65rem;
+		font-weight: 700;
+		line-height: 1;
+		text-decoration: none;
+	}
+
+	body.site-workshop .iwym-speaker-modal-actions .iwym-speaker-close:hover {
+		background: #473162;
 	}
 
 	input, select, textarea {
@@ -835,6 +1148,14 @@ body {
 		padding: 1em 0 1em 0;
 	}
 
+	#footer-wrapper.header-footer-colors-WORKSHOP {
+		padding: 3em 0;
+	}
+
+	#footer-wrapper.header-footer-colors-WORKSHOP #copyright {
+		padding: 2em 0 0;
+	}
+
 	#footer-wrapper.header-footer-colors-OSSM #copyright {
 		padding: 0.4em 0 0 0;
 	}
@@ -1114,6 +1435,8 @@ body {
 	}
 
 	@include breakpoint('<=medium') {
+		body.site-workshop .iwym-home-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+		body.site-workshop .iwym-home-actions { flex-direction: column; align-items: center; gap: 1rem; }
 
 		/* Basic */
 
@@ -1199,9 +1522,11 @@ body {
 				text-align: center;
 			}
 
-			#footer-wrapper {
-				padding: 6em 0 4em 0;
-			}
+		#footer-wrapper {
+			padding: 6em 0 4em 0;
+		}
+
+		#footer-wrapper.header-footer-colors-WORKSHOP { padding: 3em 0; }
 
 		/* Header */
 
@@ -1230,6 +1555,11 @@ body {
 				max-height: 5em;
 				height: auto;
 				width: 100%;
+			}
+
+			body.site-workshop #logo .iwym-logo {
+				width: 4.8rem;
+				height: 4.8rem;
 			}
 
 			#logo span {
@@ -1437,6 +1767,51 @@ body {
 /* Small */
 
 	@include breakpoint('<=small') {
+		body.site-workshop .iwym-cta-grid { grid-template-columns: 1fr; }
+
+		body.site-workshop .iwym-timeline-panel { padding: 1.15rem; }
+
+		body.site-workshop .iwym-timeline-list li {
+			grid-template-columns: 1fr;
+			gap: 0.2rem;
+		}
+
+		body.site-workshop .iwym-speakers {
+			grid-template-columns: 1fr;
+			grid-auto-rows: auto;
+		}
+
+		body.site-workshop .iwym-speaker-card {
+			grid-template-columns: 1fr;
+		}
+
+		body.site-workshop .iwym-speaker-photo {
+			width: 100%;
+			height: 220px;
+			min-height: 0;
+		}
+
+		body.site-workshop .iwym-speaker-modal:target {
+			align-items: flex-start;
+			padding: 0.75rem;
+		}
+
+		body.site-workshop .iwym-speaker-dialog,
+		body.site-workshop .iwym-speaker-modal > div {
+			max-height: calc(100vh - 1.5rem);
+			padding: 0;
+		}
+
+		body.site-workshop .iwym-speaker-modal h3 {
+			margin: 0;
+			padding: 1rem 1.25rem 1.1rem;
+		}
+
+		body.site-workshop .iwym-speaker-dialog-body {
+			padding: 1.25rem;
+		}
+
+		body.site-workshop .iwym-home-actions { width: 100%; }
 
 		/* Basic */
 
@@ -1585,6 +1960,10 @@ body {
 
 			#main-wrapper, #footer-wrapper {
 				padding: 40px 30px 40px 30px;
+			}
+
+			#footer-wrapper.header-footer-colors-WORKSHOP {
+				padding: 40px 30px;
 			}
 
 		/* Logo */

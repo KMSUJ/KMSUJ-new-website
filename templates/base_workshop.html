@@ -3,13 +3,9 @@
 {% load static %}
 
 {% block logo %}
-<a href="{% url 'workshop_index' language %}" class="image" style="width:40%">
-    {% if language == 'pl' %} 
-    <!-- <img src="{% static 'images/warsztaty_logo_pl.png' %}"> -->
-    {% else %}
-    <!-- <img src="{% static 'images/warsztaty_logo_en.png' %}"> -->
-    {% endif %}
-    </a>
+<a href="{% url 'workshop_index' language %}" class="image iwym-logo" aria-label="{% if language == 'pl' %}Strona główna Warsztatów{% else %}Workshop home{% endif %}">
+    <img src="{% static 'images/iwym/logo.svg' %}" alt="">
+</a>
 {% endblock %}
 
 {% block index_link %}
@@ -62,14 +58,12 @@
     {% if language == 'pl' %}
     <p>Koło Matematyków Studentów Uniwersytetu Jagiellońskiego im. prof. Stanisława Zaremby <br />
         Łojasiewicza 6/1006, 30-348 Kraków<br />
-        telefon: (+48) 12 664 76 08 <br />
         email: kmsuj@uj.edu.pl
     </p>
     {% else %}
     <p> The Zaremba Society of Mathematicians - Students of the Jagiellonian University <br />
         Łojasiewicza 6/1006, 30-348 Kraków<br />
         Poland <br />
-        phone: (+48) 12 664 76 08 <br />
         email: kmsuj@uj.edu.pl
     </p>
     {% endif %}
