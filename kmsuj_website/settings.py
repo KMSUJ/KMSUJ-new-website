@@ -41,28 +41,28 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
-LOGGING_ROOT = os.environ['DJANGO_LOGGING_ROOT']
+# LOGGING_ROOT = os.environ['DJANGO_LOGGING_ROOT']
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'level': 'WARNING',
-        },
-        'file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'level': 'INFO',
-            'filename': os.path.join(LOGGING_ROOT, "info.log"),
-            'maxBytes': 8 * 1024 * 1024,
-            'backupCount': 8,
-        },
-    },
-    'root': {
-        'handlers': ['file', 'console'],
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'level': 'WARNING',
+#         },
+#         'file': {
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'level': 'INFO',
+#             'filename': os.path.join(LOGGING_ROOT, "info.log"),
+#             'maxBytes': 8 * 1024 * 1024,
+#             'backupCount': 8,
+#         },
+#     },
+#     'root': {
+#         'handlers': ['file', 'console'],
+#     },
+# }
 
 
 # Application definition
@@ -125,7 +125,7 @@ WSGI_APPLICATION = 'kmsuj_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASE_ROOT = os.environ["DATABASE_ROOT_DIR"]
+DATABASE_ROOT = BASE_DIR #os.environ["DATABASE_ROOT_DIR"]
 
 DATABASES = {
     'default': {
@@ -198,7 +198,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 BLEACH_ALLOWED_TAGS = [
     'p', 'b', 'i', 'u', 'em', 'strong', 'a', 'pre', 'div', 'strong', 'sup', 'sub', 'ol', 'ul', 'li', 'address',
     'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code', 'table', 'thead', 'tbody', 'th', 'tr', 'td', 'hr',
-    'img', 'br', 'iframe', 'details', 'summary', 'style'
+    'img', 'br', 'iframe', 'details', 'summary', 'style', 'article'
 ]
 
 # Which HTML attributes are allowed

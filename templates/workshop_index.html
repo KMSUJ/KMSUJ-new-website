@@ -33,33 +33,40 @@
             <div class="col-12 col-12-medium imp-medium">
 
                 <!-- Content -->
-                <div id="content">
+                <div id="content" class="iwym-home">
                     <section class="last">
-                        <!-- <h2>O Kole</h2> -->
-                        <p style="text-align: justify">
-                            {% if language == 'pl' %}
-                            <p><strong>Międzynarodowe Warsztaty dla Młodych Matematyków</strong> są najważniejszym naukowo wydarzeniem organizowanym od ponad dwóch dekad przez Koło Matematyków Studentów Uniwersytetu Jagiellońskiego im. prof. Stanisława Zaremby. Na przestrzeni tygodnia uczestnikom oferowane są wykłady czołowych badaczy określonej dziedziny, której wydarzenie w danym roku jest poświęcone, a także mają możliwość przedstawienia własnych badań zahaczających o tę tematykę.</p>
-
-                            <p>Jest to okazja do poznania światowej renomy naukowców, wykładowców i badaczy z całego globu oraz, co nieraz ważniejsze, nawiązać międzynarodowe znajomości z innymi studentami, którzy dzielą tę samą pasję i zamiłowanie do nauki. W ciągu wydarzenia jest wiele okazji zarówno formalniejszych, jak i luźniejszych, kiedy to uczestnicy mogą wymieniać się myślami, poglądami oraz doświadczeniami – czy to w murach uniwersytetu, zielonych terenach królewskiego Krakowa, czy też na integracji w barze.</p>
-
-                            <p>Tegoroczna edycja Warsztatów będzie poświęcona <strong>układom dynamicznym</strong>, a konkretniej dynamice klasycznej i obliczeniowej. Współcześnie modelowanie matematyczne trudno wyobrazić sobie bez wsparcia komputerów, a metody obliczeniowe często pozwalają rozstrzygać problemy, które przez długi czas opierały się klasycznym narzędziom analitycznym. Dobrym przykładem jest 14. problem Smale’a, rozwiązany dzięki połączeniu teorii i komputerowo wspomaganego dowodu.</p>
-
-                            <p>Zapraszamy serdecznie wszystkich zainteresowanych do kontaktu (<a href="mailto:kmsuj@uj.edu.pl">kmsuj@uj.edu.pl</a>), a ostatecznie i do uczestnictwa w naszej konferencji, która jest idealną okazją do wejścia z rówieśnikami w świat poważniejszych i nieprzerwanie pociągających badań.</p>
-
-                            <p><strong>Informacje o konferencji publikujemy na bieżąco na naszej <a href="https://www.facebook.com/youngmathkrak?locale=pl_PL">stronie na Facebooku</a>.</strong><br>
-                            <strong>Warto nas zaobserwować!</strong></p>
-                            {% else %}
-                            <p><strong>The International Workshop for Young Mathematicians</strong> is the most significant academic event organised for over two decades by the Zaremba Society of Mathematicians - Students of the Jagiellonian University. Over the course of a week, participants are offered lectures by leading researchers in the specific field to which that year’s event is dedicated, where they also have the opportunity to present their own research related to this topic.</p>
-
-                            <p>It is an opportunity to meet world-renowned scientists, lecturers and researchers from across the globe and, perhaps even more importantly, to forge international connections with other students who share the same passion and enthusiasm for science. Throughout the event, there are many opportunities, both formal and informal, for participants to exchange thoughts, views and experiences – whether within the university walls, in the natural retreats of the royal city of Cracow, or at a get-together in a bar.</p>
-                            <p>This year’s edition of the Workshop will be devoted to dynamical systems, more specifically to classical and computational dynamics. Today, mathematical modelling is hard to imagine without the support of computers, and computational methods often make it possible to resolve problems that resisted classical analytical tools for many years. A good example is Smale’s 14th problem, which was solved through a combination of theoretical insight and a computer-assisted proof.</p>
-                            <p>We warmly invite anyone interested to get in touch (<a href="mailto:kmsuj@uj.edu.pl">kmsuj@uj.edu.pl</a>) and, ultimately, to take part in our conference, which is the perfect opportunity to join your peers in the world of serious and endlessly fascinating scientific inquiries.</p>
-
-                            <p><strong>We are posting updates about the conference on our <a href="https://www.facebook.com/youngmathkrak?locale=pl_PL">Facebook page</a> – do give us a follow!</strong></p>
-                            {% endif %}
-                        </p>
-
-			
+                        {% if language == 'pl' %}
+                        <div class="iwym-home-intro">
+                            <div class="iwym-home-intro-main">
+                                <p><strong>Międzynarodowe Warsztaty dla Młodych Matematyków</strong> są najważniejszym naukowo wydarzeniem organizowanym od ponad dwóch dekad przez Koło Matematyków Studentów Uniwersytetu Jagiellońskiego im. prof. Stanisława Zaremby. Na przestrzeni tygodnia uczestnikom oferowane są wykłady czołowych badaczy określonej dziedziny, której wydarzenie w danym roku jest poświęcone, a także mają możliwość przedstawienia własnych badań zahaczających o tę tematykę.</p>
+                                <p>Jest to okazja do poznania światowej renomy naukowców, wykładowców i badaczy z całego globu oraz, co nieraz ważniejsze, nawiązać międzynarodowe znajomości z innymi studentami, którzy dzielą tę samą pasję i zamiłowanie do nauki. W ciągu wydarzenia jest wiele okazji zarówno formalniejszych, jak i luźniejszych, kiedy to uczestnicy mogą wymieniać się myślami, poglądami oraz doświadczeniami – czy to w murach uniwersytetu, zielonych terenach królewskiego Krakowa, czy też na integracji w barze.</p>
+                            </div>
+                            <aside class="iwym-home-topic"><p>Tegoroczna edycja Warsztatów będzie poświęcona <strong>układom dynamicznym</strong>, a konkretniej dynamice klasycznej i obliczeniowej. Współcześnie modelowanie matematyczne trudno wyobrazić sobie bez wsparcia komputerów, a metody obliczeniowe często pozwalają rozstrzygać problemy, które przez długi czas opierały się klasycznym narzędziom analitycznym. Dobrym przykładem jest 14. problem Smale’a, rozwiązany dzięki połączeniu teorii i komputerowo wspomaganego dowodu.</p></aside>
+                        </div>
+                        <p>Zapraszamy serdecznie wszystkich zainteresowanych do kontaktu (<a href="mailto:kmsuj@uj.edu.pl">kmsuj@uj.edu.pl</a>), a ostatecznie i do uczestnictwa w naszej konferencji, która jest idealną okazją do wejścia z rówieśnikami w świat poważniejszych i nieprzerwanie pociągających badań.</p>
+                        <div class="iwym-home-actions">
+                            <a href="{% url 'workshop_page' 'reg_and_timeline' language %}" class="button large iwym-home-button">Rejestracja</a>
+                            <a href="{% url 'workshop_page' 'announcements' language %}" class="button large iwym-home-button">Aktualności</a>
+                        </div>
+                        <p class="iwym-home-facebook-note"><strong>Informacje o konferencji publikujemy na bieżąco na naszej stronie na Facebooku. Warto nas zaobserwować!</strong></p>
+                        {% else %}
+                        <div class="iwym-home-intro">
+                            <div class="iwym-home-intro-main">
+                                <p><strong>The International Workshop for Young Mathematicians</strong> is the most significant academic event organised for over two decades by the Zaremba Society of Mathematicians - Students of the Jagiellonian University. Over the course of a week, participants are offered lectures by leading researchers in the specific field to which that year’s event is dedicated, where they also have the opportunity to present their own research related to this topic.</p>
+                                <p>It is an opportunity to meet world-renowned scientists, lecturers and researchers from across the globe and, perhaps even more importantly, to forge international connections with other students who share the same passion and enthusiasm for science. Throughout the event, there are many opportunities, both formal and informal, for participants to exchange thoughts, views and experiences – whether within the university walls, in the natural retreats of the royal city of Cracow, or at a get-together in a bar.</p>
+                            </div>
+                            <aside class="iwym-home-topic"><p>This year’s edition of the Workshop will be devoted to <strong>dynamical systems</strong>, more specifically to classical and computational dynamics. Today, mathematical modelling is hard to imagine without the support of computers, and computational methods often make it possible to resolve problems that resisted classical analytical tools for many years. A good example is Smale’s 14th problem, which was solved through a combination of theoretical insight and a computer-assisted proof.</p></aside>
+                        </div>
+                        <p>We warmly invite anyone interested to get in touch (<a href="mailto:kmsuj@uj.edu.pl">kmsuj@uj.edu.pl</a>) and, ultimately, to take part in our conference, which is the perfect opportunity to join your peers in the world of serious and endlessly fascinating scientific inquiries.</p>
+                        <div class="iwym-home-actions">
+                            <a href="{% url 'workshop_page' 'reg_and_timeline' language %}" class="button large iwym-home-button">Register</a>
+                            <a href="{% url 'workshop_page' 'announcements' language %}" class="button large iwym-home-button">Announcements</a>
+                        </div>
+                        <p class="iwym-home-facebook-note"><strong>We are posting updates about the conference on our Facebook page – do give us a follow!</strong></p>
+                        {% endif %}
+                        <div class="widget contact last iwym-home-facebook">
+                            <ul><li><a href="https://www.facebook.com/youngmathkrak" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f iwym-home-facebook-button"><span class="label">Facebook</span></a></li></ul>
+                        </div>
                     </section>
                 </div>
 		
