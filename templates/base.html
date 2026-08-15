@@ -16,6 +16,10 @@
 		<link href="{% static 'dist/main.css' %}?v=20260814" rel="stylesheet">
         {% if site == 'OSSM' %}
 		<link rel="icon" type="image/x-icon" href="{% static 'images/ossm/ossm_favicon_256.ico' %}">
+        {% elif site == 'WORKSHOP' %}
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/iwym/favicon-32.png' %}">
+		<link rel="icon" type="image/png" sizes="64x64" href="{% static 'images/iwym/favicon-64.png' %}">
+		<link rel="icon" type="image/png" sizes="128x128" href="{% static 'images/iwym/favicon-128.png' %}">
         {% endif %}
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
