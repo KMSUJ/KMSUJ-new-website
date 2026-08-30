@@ -127,7 +127,7 @@
 
 })(jQuery);
 
-MathJax = {
+window.MathJax = {
 	loader: {
 		load: ['[tex]/boldsymbol']
 	},
