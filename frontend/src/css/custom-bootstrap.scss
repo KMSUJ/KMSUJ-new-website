@@ -417,6 +417,10 @@ body {
 	}
 
 	/* Invited speakers */
+	body.site-workshop .iwym-home-speakers-section {
+		margin: 3.5rem 0;
+	}
+
 	body.site-workshop .iwym-speakers {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
