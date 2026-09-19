@@ -468,6 +468,24 @@ body {
 		object-fit: contain;
 	}
 
+	body.site-workshop .iwym-patron-card-captioned {
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1rem;
+	}
+
+	body.site-workshop .iwym-patron-card-captioned .iwym-patron-logo {
+		height: 105px;
+	}
+
+	body.site-workshop .iwym-patron-caption {
+		color: #333;
+		font-size: 0.9rem;
+		font-weight: 600;
+		line-height: 1.35;
+		text-align: center;
+	}
+
 	body.site-workshop .iwym-patron-logo-dean { width: 72%; }
 	body.site-workshop .iwym-patron-logo-ptm { width: 56%; }
 	body.site-workshop .iwym-patron-logo-dioscuri-tda { width: 100%; }
