@@ -112,7 +112,7 @@ def get_context(request, site = 'KMSUJ', language = 'en'):
             context['sub_pages'] = sub_pages
             main_nav_tab = 'Koło'
             prefix = ''
-            additional_links.append(AdditionalLink("http://kmsuj.im.uj.edu.pl/biblioteka/katalog.php", "Biblioteka"))
+            additional_links.append(AdditionalLink("https://docs.google.com/spreadsheets/d/1zF1KMPFl8WL7Tx6Q2YURgzCVHRijidqHLfn7H1h8wuM/edit?usp=sharing", "Biblioteka"))
             dropdown_links.append(AdditionalLink("/ossm", "Ogólnopolska Sesja Studentów Matematyki"))     
             dropdown_links.append(AdditionalLink("/workshop", "Międzynarodowe Warsztaty dla Młodych Matematyków"))       
         else:
